@@ -16,9 +16,8 @@ I3 = np.eye(3)
 r2_I3 = low_rank_approx(I3, 2)
 
 assert np.linalg.matrix_rank(r2_I3) <= 2 and np.linalg.norm(I3-r2_I3, ord='fro') <= 1 + eps
-print("Task 1 success")
+
 D123 = np.diag([1.0, 2.0, 3.0])
 x = constrained_LLS(D123, I3)
 
 assert np.abs(np.linalg.norm(x, ord=2) - 1) <= eps and np.linalg.norm(D123@x, ord=2) <= 1 + eps
-print("Task 2 success")
